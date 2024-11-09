@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cruise Ship Management</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="header">
+      <div class="logo">CruiseLine</div>
+      <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#bookings">Cruises</a>
+      </nav>
+      <!-- <div class="profile-icon">
+      <video autoplay muted loop>
+    <img src="" alt="">
+    </div> -->
+    </header>
+
+    <!-- Hero Section with Background Video -->
+    <section class="hero" id="home">
+      <video autoplay muted loop>
+        <source src="/175923-854230287.mp4" type="video/mp4" />
+        <!-- Fallback for unsupported browsers -->
+        Your browser does not support the video tag.
+      </video>
+      <div class="hero-content">
+        <div class="bg">
+          <h1>Discover Your Next Adventure</h1>
+          <p>Explore the world on our luxury cruises.</p>
+        </div>
+        <!-- <a href="#bookings" class="cta-button">Book Now</a> -->
+      </div>
+    </section>
+
+    <!-- Bookings Section -->
+    <section class="bookings" id="bookings">
+      <h2>Find Your Cruise</h2>
+      <!-- <input type="text" class="search-bar" placeholder="Search cruises by destination or date"> -->
+
+      <div class="cruise-list">
+        <div
+          class="cruise-item bg-image"
+          style="background-image: url(/Cruise-Img/cruise-ship-3526709_640.jpg)"
+        >
+          <h2>Caribbean Getaway</h2>
+          <div class="cruise-details">
+            <h3>Caribbean Getaway</h3>
+            <p>Starting Place: Miami, Florida</p>
+            <p>Destination: Caribbean</p>
+            <p>Departure Date: 2024-01-15</p>
+            <button class="book-button" onclick="openBookingModal()">
+              Book Now
+            </button>
+          </div>
+        </div>
+        <div
+          class="cruise-item bg-image"
+          style="background-image: url(/Cruise-Img/ship-3526712_640.jpg)"
+        >
+          <h2>Mediterranean Escape</h2>
+          <div class="cruise-details">
+            <h3>Mediterranean Escape</h3>
+            <p>Starting Place: Barcelona, Spain</p>
+            <p>Destination: Mediterranean Sea</p>
+            <p>Departure Date: 2024-01-15</p>
+            <button class="book-button" onclick="openBookingModal()">
+              Book Now
+            </button>
+          </div>
+        </div>
+        <!-- Add more cruise items as needed -->
+        <div
+          class="cruise-item bg-image"
+          style="background-image: url(/Cruise-Img/cruise-ship-3669943_640.jpg)"
+        >
+          <h2>Alaskan Adventure</h2>
+          <div class="cruise-details">
+            <h3>Alaskan Adventure</h3>
+            <p>Starting Place: Seattle, Washington</p>
+            <p>Destination: Alaska</p>
+            <p>Departure Date: 2024-01-15</p>
+            <button class="book-button" onclick="openBookingModal()">
+              Book Now
+            </button>
+          </div>
+        </div>
+        <div
+          class="cruise-item bg-image"
+          style="background-image: url(/Cruise-Img/cruise-ship-3544217_640.jpg)"
+        >
+          <h2>Tropical Paradise Cruise</h2>
+          <div class="cruise-details">
+            <h3>Tropical Paradise Cruise</h3>
+            <p>Starting Place: Fort Lauderdale, Florida</p>
+            <p>Destination: Bahamas</p>
+            <p>Departure Date: 2024-01-15</p>
+            <button class="book-button" onclick="openBookingModal()">
+              Book Now
+            </button>
+          </div>
+        </div>
+        <div
+          class="cruise-item bg-image"
+          style="background-image: url(/Cruise-Img/ship-425064_640.jpg)"
+        >
+          <h2>European River Cruise</h2>
+          <div class="cruise-details">
+            <h3>European River Cruise</h3>
+            <p>Starting Place: Budapest, Hungary</p>
+            <p>Destination: Danube River</p>
+            <p>Departure Date: 2024-01-15</p>
+            <button class="book-button" onclick="openBookingModal()">
+              Book Now
+            </button>
+          </div>
+        </div>
+        <div
+          class="cruise-item bg-image"
+          style="background-image: url(/Cruise-Img/cruise-ship-3526709_640.jpg)"
+        >
+          <h2>Southeast Asia Discovery</h2>
+          <div class="cruise-details">
+            <h3>Southeast Asia Discovery</h3>
+            <p>Starting Place: Singapore</p>
+            <p>Destination: Southeast Asia (Thailand, Singapore)</p>
+            <p>Departure Date: 2024-01-15</p>
+            <button class="book-button" onclick="openBookingModal()">
+              Book Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <p>&copy; 2024 CruiseLine. All rights reserved.</p>
+    </footer>
+
+    <!-- Booking  -->
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="booking-modal">
+      <div class="modal-content">
+        <span class="close-button" onclick="closeBookingModal()">&times;</span>
+        <h2>Booking Details</h2>
+
+        <form id="bookingForm">
+          <!-- Passenger Details Section -->
+          <div id="passengerSection">
+            <h3>Passenger Details</h3>
+
+            <div class="passenger" id="passenger1">
+              <label>Passenger Name:</label>
+              <input
+                type="text"
+                name="firstName[]"
+                placeholder="First Name"
+                required
+              />
+              <input
+                type="text"
+                name="lastName[]"
+                placeholder="Last Name"
+                required
+              />
+
+              <label>Age:</label>
+              <input type="number" name="age[]" placeholder="Age" required />
+
+              <label>Gender:</label>
+              <select class="passenger" name="gender[]" required>
+                <option value="">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+
+              <button
+                type="button"
+                class="remove-button"
+                onclick="removePassenger(this)"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+
+          <button
+            class="submit1"
+            type="button"
+            id="addPassengerButton"
+            onclick="addPassenger()"
+          >
+            Add More Passengers
+          </button>
+
+          <h3>Contact Details</h3>
+          <label for="commonPhone">Phone Number:</label>
+          <input type="tel" id="commonPhone" name="commonPhone" required />
+
+          <label for="commonEmail">Email:</label>
+          <input type="email" id="commonEmail" name="commonEmail" required />
+
+          <label for="commonAddress">Address:</label>
+          <input type="text" id="commonAddress" name="commonAddress" required />
+
+          <button class="submit1" type="submit" onclick="submitBooking()">
+            Confirm Booking
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Ticket Summary Modal -->
+    <div id="ticketSummary" class="ticket-summary-modal" style="display: none">
+      <div class="modal-content">
+        <span class="close-button" onclick="closeTicketSummary()">&times;</span>
+        <h2>Ticket Summary</h2>
+        <div id="summaryDetails"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
